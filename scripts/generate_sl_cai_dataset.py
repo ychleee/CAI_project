@@ -317,7 +317,7 @@ def main():
     parser.add_argument("--output-dir", type=str, default="data/sl_datasets",
                         help="Output directory")
     parser.add_argument("--model", type=str, default="EleutherAI/pythia-1.4b",
-                        help="Model to use for generation")
+                        help="Model name or path to LoRA adapter directory")
     parser.add_argument("--num-revisions", type=int, default=4,
                         help="Number of critique-revision rounds")
     parser.add_argument("--num-red-team", type=int, default=500,

@@ -5,6 +5,7 @@ Implements critique and revision with random principle sampling
 
 import json
 import random
+import os
 from pathlib import Path
 from typing import Dict, List, Tuple, Optional, Any
 from dataclasses import dataclass
@@ -13,6 +14,14 @@ import logging
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
 from tqdm import tqdm
+
+# Try to import PEFT for LoRA support
+try:
+    from peft import PeftModel, PeftConfig
+    PEFT_AVAILABLE = True
+except ImportError:
+    PEFT_AVAILABLE = False
+    logger.warning("PEFT library not available. LoRA models will not be supported.")
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -36,7 +45,7 @@ class ConstitutionalCritique:
         model_name: str,
         constitution_path: str,
         constitution_type: str,
-        device: str = "cuda" if torch.cuda.is_available() else "cpu",
+        device: str = None,
         seed: int = 42
     ):
         """
@@ -51,7 +60,19 @@ class ConstitutionalCritique:
         """
         self.model_name = model_name
         self.constitution_type = constitution_type
-        self.device = device
+        
+        # Properly detect device for Mac/Linux/Windows
+        if device is None:
+            if torch.cuda.is_available():
+                self.device = "cuda"
+            elif torch.backends.mps.is_available():
+                self.device = "mps"
+            else:
+                self.device = "cpu"
+        else:
+            self.device = device
+            
+        logger.info(f"Using device: {self.device}")
         random.seed(seed)
         
         # Load constitution
@@ -59,16 +80,94 @@ class ConstitutionalCritique:
         
         # Load model and tokenizer
         logger.info(f"Loading model {model_name}")
-        self.tokenizer = AutoTokenizer.from_pretrained(model_name)
-        self.model = AutoModelForCausalLM.from_pretrained(
-            model_name,
-            torch_dtype=torch.float16 if device == "cuda" else torch.float32,
-            device_map="auto" if device == "cuda" else None
-        )
+        self.model, self.tokenizer = self._load_model(model_name, device)
         
         if self.tokenizer.pad_token is None:
             self.tokenizer.pad_token = self.tokenizer.eos_token
             
+    def _load_model(self, model_name_or_path: str, device: str):
+        """
+        Load model - either a HuggingFace model or a LoRA adapter
+        
+        Args:
+            model_name_or_path: Either HF model name or path to LoRA adapter
+            device: Device to load model on
+            
+        Returns:
+            model, tokenizer tuple
+        """
+        # Check if this is a LoRA adapter directory
+        is_lora = False
+        if os.path.isdir(model_name_or_path):
+            adapter_config_path = os.path.join(model_name_or_path, "adapter_config.json")
+            if os.path.exists(adapter_config_path) and PEFT_AVAILABLE:
+                is_lora = True
+                logger.info(f"Detected LoRA adapter at {model_name_or_path}")
+        
+        if is_lora:
+            # Load LoRA model
+            # First, load the adapter config to get the base model name
+            with open(adapter_config_path, 'r') as f:
+                adapter_config = json.load(f)
+            
+            base_model_name = adapter_config.get("base_model_name_or_path", "mistralai/Mistral-7B-v0.1")
+            logger.info(f"Loading base model: {base_model_name}")
+            
+            # Load base model
+            if self.device == "mps":
+                # Mac Metal Performance Shaders
+                base_model = AutoModelForCausalLM.from_pretrained(
+                    base_model_name,
+                    torch_dtype=torch.float16,
+                    trust_remote_code=True
+                )
+                base_model = base_model.to(self.device)
+            else:
+                base_model = AutoModelForCausalLM.from_pretrained(
+                    base_model_name,
+                    torch_dtype=torch.float16 if self.device == "cuda" else torch.float32,
+                    device_map="auto" if self.device == "cuda" else None,
+                    trust_remote_code=True
+                )
+            
+            # Load tokenizer (try adapter path first, then base model)
+            try:
+                tokenizer = AutoTokenizer.from_pretrained(model_name_or_path)
+                logger.info(f"Loaded tokenizer from {model_name_or_path}")
+            except:
+                tokenizer = AutoTokenizer.from_pretrained(base_model_name)
+                logger.info(f"Loaded tokenizer from base model {base_model_name}")
+            
+            # Apply LoRA adapter
+            logger.info(f"Applying LoRA adapter from {model_name_or_path}")
+            model = PeftModel.from_pretrained(base_model, model_name_or_path)
+            
+            # Merge and unload for inference (optional, but can be faster)
+            # model = model.merge_and_unload()
+            
+            return model, tokenizer
+        else:
+            # Load regular HuggingFace model
+            logger.info(f"Loading HuggingFace model: {model_name_or_path}")
+            tokenizer = AutoTokenizer.from_pretrained(model_name_or_path)
+            
+            if self.device == "mps":
+                # Mac Metal Performance Shaders
+                model = AutoModelForCausalLM.from_pretrained(
+                    model_name_or_path,
+                    torch_dtype=torch.float16,
+                    trust_remote_code=True
+                )
+                model = model.to(self.device)
+            else:
+                model = AutoModelForCausalLM.from_pretrained(
+                    model_name_or_path,
+                    torch_dtype=torch.float16 if self.device == "cuda" else torch.float32,
+                    device_map="auto" if self.device == "cuda" else None,
+                    trust_remote_code=True
+                )
+            return model, tokenizer
+    
     def _load_constitution(self, path: str) -> Dict:
         """Load constitution from JSON file"""
         with open(path, 'r') as f:

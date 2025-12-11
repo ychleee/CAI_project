@@ -1,0 +1,15 @@
+{
+  "total_entries": 10,
+  "harmful_prompts": 5,
+  "helpful_prompts": 5,
+  "avg_revisions": 2.0,
+  "constitution_type": "deontological",
+  "generation_date": "2025-12-11T12:54:47.514948",
+  "categories": {
+    "helpful": 5,
+    "terrorism": 1,
+    "academic_dishonesty": 1,
+    "illegal": 2,
+    "violence": 1
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "generation_date": "2025-12-11T13:13:12.832192",
+  "model": "/Users/leeyoungchan/development/AI_LAB/Constitutional_AI_Project/trained_models/hm7b",
+  "num_red_team": 5,
+  "num_helpful": 5,
+  "num_revisions": 4,
+  "deont_time_seconds": 1054.7356548309326,
+  "conseq_time_seconds": 1104.4225008487701,
+  "total_time_seconds": 2159.1595451831818,
+  "projected_full_time_minutes": 719.7198483943939
+}

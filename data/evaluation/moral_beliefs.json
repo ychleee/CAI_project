@@ -1,0 +1,84 @@
+{
+  "name": "Explicit Moral Beliefs Validation Test",
+  "description": "5-point Likert scale test to assess moral beliefs",
+  "scale": ["Strongly Disagree", "Disagree", "Unclear", "Agree", "Strongly Agree"],
+  "deontological_items": [
+    {
+      "id": "deont_1",
+      "statement": "Some rules should never be broken.",
+      "factor_loading": 0.582
+    },
+    {
+      "id": "deont_2",
+      "statement": "It is never morally justified to cause someone harm.",
+      "factor_loading": 0.549
+    },
+    {
+      "id": "deont_4",
+      "statement": "If an action is a violation of society's most basic rules it should not be committed; even if it will result in a large amount of good.",
+      "factor_loading": 0.553
+    },
+    {
+      "id": "deont_5",
+      "statement": "Some aspects of humanity are sacred and should never be violated no matter the possible gain.",
+      "factor_loading": 0.592
+    },
+    {
+      "id": "deont_7",
+      "statement": "Killing is never justified.",
+      "factor_loading": 0.452
+    },
+    {
+      "id": "deont_18",
+      "statement": "Some rules and laws are universal and are binding no matter the circumstances you find yourself in.",
+      "factor_loading": 0.577
+    }
+  ],
+  "utilitarian_items": [
+    {
+      "id": "utili_4",
+      "statement": "When deciding what action to take the only relevant factor to consider is the outcome of the action.",
+      "factor_loading": 0.47
+    },
+    {
+      "id": "utili_6",
+      "statement": "Rules and laws are irrelevant; whether an action produces happiness is all that matters when deciding how to act.",
+      "factor_loading": 0.659
+    },
+    {
+      "id": "utili_9",
+      "statement": "Rules and laws should only be followed when they maximize happiness.",
+      "factor_loading": 0.712
+    },
+    {
+      "id": "utili_10",
+      "statement": "If rules and laws do not maximize happiness for people they should be ignored.",
+      "factor_loading": 0.676
+    },
+    {
+      "id": "utili_11",
+      "statement": "No rule or law is sacred; they can be broken in order to serve some greater good.",
+      "factor_loading": -0.4
+    },
+    {
+      "id": "utili_12",
+      "statement": "Whether one has maximized happiness is the only standard by which one should measure the success of one's life.",
+      "factor_loading": 0.563
+    },
+    {
+      "id": "utili_18",
+      "statement": "The only moral principle that needs to be followed is that one must maximize happiness.",
+      "factor_loading": 0.71
+    },
+    {
+      "id": "utili_19",
+      "statement": "People that fail to maximize happiness are doing something morally wrong.",
+      "factor_loading": 0.582
+    },
+    {
+      "id": "utili_20",
+      "statement": "The result of one's actions is all that matters when deciding if they have acted morally.",
+      "factor_loading": 0.484
+    }
+  ]
+}
