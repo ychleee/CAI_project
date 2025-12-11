@@ -1,0 +1,96 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+ENV/
+env/
+.venv
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Models and Data (too large for GitHub)
+models/*/
+*.nemo
+*.ckpt
+*.pt
+*.bin
+*.safetensors
+*.h5
+*.pb
+
+# Large data files
+data/raw/*.jsonl
+data/raw/*.json
+data/processed/*.jsonl
+data/sl_datasets/*.jsonl
+data/rl_datasets/*.jsonl
+*.gz
+*.zip
+*.tar
+
+# Keep sample data
+!data/red_team/sample_*.json
+!data/helpfulness/sample_*.json
+!data/evaluation/*.json
+
+# Results and logs
+results/*/
+*.log
+logs/
+wandb/
+runs/
+tensorboard/
+
+# Credentials
+*.key
+*.pem
+.env
+secrets.json
+*_api_key.txt
+
+# OS files
+Thumbs.db
+.DS_Store
+._.DS_Store
+
+# Temporary files
+*.tmp
+*.bak
+*.cache
+tmp/
+temp/
+
+# Keep important config files
+!configs/**/*.yaml
+!configs/**/*.json
+!constitutions/**/*.json

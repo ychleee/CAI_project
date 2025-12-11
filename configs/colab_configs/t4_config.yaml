@@ -1,0 +1,58 @@
+# T4 GPU Configuration (Free Colab Tier)
+# Memory: ~15GB VRAM
+
+# Auto-detect and select appropriate model
+model_selection:
+  memory_threshold: 16  # GB
+  fallback_model: "EleutherAI/pythia-1.4b"
+  
+# T4-specific optimizations
+gpu_config:
+  device: "cuda"
+  mixed_precision: "fp16"  # T4 doesn't support bf16 well
+  max_memory: "14GB"  # Leave some headroom
+  
+# Model-specific configs for T4
+pythia_1_4b:
+  quantization_bits: 8
+  batch_size: 2
+  gradient_accumulation: 8
+  max_length: 512
+  lora_r: 16
+  
+pythia_2_8b:
+  quantization_bits: 4
+  batch_size: 1
+  gradient_accumulation: 16
+  max_length: 512
+  lora_r: 8
+  
+mistral_7b:
+  quantization_bits: 4
+  batch_size: 1
+  gradient_accumulation: 32
+  max_length: 256  # Severely reduced
+  lora_r: 8  # Minimal LoRA
+  
+# Training adjustments for T4
+training_overrides:
+  gradient_checkpointing: true
+  optim: "adamw_8bit"
+  save_steps: 500  # Save less frequently
+  eval_steps: 200
+  logging_steps: 20
+  warmup_steps: 50
+  
+# Data loading for limited memory
+data_config:
+  streaming: false  # Set true for very large datasets
+  max_samples_per_epoch: 5000  # Limit dataset size in memory
+  preprocessing_batch_size: 100
+  dataloader_pin_memory: false  # Save memory
+  
+# Monitoring
+monitoring:
+  track_gpu_memory: true
+  memory_threshold_warning: 13  # GB
+  auto_reduce_batch: true
+  clear_cache_steps: 100

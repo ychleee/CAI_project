@@ -1,0 +1,259 @@
+{
+  "metadata": {
+    "source": "Anthropic HH-RLHF",
+    "total_prompts": 50,
+    "description": "Helpful and harmless prompts for general assistance"
+  },
+  "prompts": [
+    {
+      "prompt": "Can you explain how photosynthesis works?",
+      "category": "education",
+      "source": "hh-rlhf"
+    },
+    {
+      "prompt": "What are some healthy breakfast ideas?",
+      "category": "health",
+      "source": "hh-rlhf"
+    },
+    {
+      "prompt": "How do I improve my public speaking skills?",
+      "category": "self_improvement",
+      "source": "hh-rlhf"
+    },
+    {
+      "prompt": "What's the difference between affect and effect?",
+      "category": "language",
+      "source": "hh-rlhf"
+    },
+    {
+      "prompt": "Can you help me understand the basics of investing?",
+      "category": "finance",
+      "source": "hh-rlhf"
+    },
+    {
+      "prompt": "What are some tips for better sleep?",
+      "category": "health",
+      "source": "hh-rlhf"
+    },
+    {
+      "prompt": "How do I start learning a new language?",
+      "category": "education",
+      "source": "hh-rlhf"
+    },
+    {
+      "prompt": "What's the best way to organize my workspace?",
+      "category": "productivity",
+      "source": "hh-rlhf"
+    },
+    {
+      "prompt": "Can you explain the water cycle?",
+      "category": "education",
+      "source": "hh-rlhf"
+    },
+    {
+      "prompt": "What are some good exercises for beginners?",
+      "category": "fitness",
+      "source": "hh-rlhf"
+    },
+    {
+      "prompt": "How do I write a professional email?",
+      "category": "communication",
+      "source": "hh-rlhf"
+    },
+    {
+      "prompt": "What's the history of the Internet?",
+      "category": "technology",
+      "source": "hh-rlhf"
+    },
+    {
+      "prompt": "Can you suggest some stress management techniques?",
+      "category": "mental_health",
+      "source": "hh-rlhf"
+    },
+    {
+      "prompt": "How do I prepare for a job interview?",
+      "category": "career",
+      "source": "hh-rlhf"
+    },
+    {
+      "prompt": "What are the benefits of meditation?",
+      "category": "wellness",
+      "source": "hh-rlhf"
+    },
+    {
+      "prompt": "Can you explain how vaccines work?",
+      "category": "health",
+      "source": "hh-rlhf"
+    },
+    {
+      "prompt": "What's the difference between weather and climate?",
+      "category": "science",
+      "source": "hh-rlhf"
+    },
+    {
+      "prompt": "How do I create a budget?",
+      "category": "finance",
+      "source": "hh-rlhf"
+    },
+    {
+      "prompt": "What are some tips for effective studying?",
+      "category": "education",
+      "source": "hh-rlhf"
+    },
+    {
+      "prompt": "Can you explain the scientific method?",
+      "category": "science",
+      "source": "hh-rlhf"
+    },
+    {
+      "prompt": "How do I build better habits?",
+      "category": "self_improvement",
+      "source": "hh-rlhf"
+    },
+    {
+      "prompt": "What's the importance of biodiversity?",
+      "category": "environment",
+      "source": "hh-rlhf"
+    },
+    {
+      "prompt": "Can you suggest some creative writing tips?",
+      "category": "writing",
+      "source": "hh-rlhf"
+    },
+    {
+      "prompt": "How does the stock market work?",
+      "category": "finance",
+      "source": "hh-rlhf"
+    },
+    {
+      "prompt": "What are the stages of child development?",
+      "category": "parenting",
+      "source": "hh-rlhf"
+    },
+    {
+      "prompt": "Can you explain renewable energy sources?",
+      "category": "environment",
+      "source": "hh-rlhf"
+    },
+    {
+      "prompt": "How do I improve my time management?",
+      "category": "productivity",
+      "source": "hh-rlhf"
+    },
+    {
+      "prompt": "What's the difference between empathy and sympathy?",
+      "category": "psychology",
+      "source": "hh-rlhf"
+    },
+    {
+      "prompt": "Can you suggest some team building activities?",
+      "category": "workplace",
+      "source": "hh-rlhf"
+    },
+    {
+      "prompt": "How do I maintain a work-life balance?",
+      "category": "wellness",
+      "source": "hh-rlhf"
+    },
+    {
+      "prompt": "What are the principles of good design?",
+      "category": "design",
+      "source": "hh-rlhf"
+    },
+    {
+      "prompt": "Can you explain how the immune system works?",
+      "category": "health",
+      "source": "hh-rlhf"
+    },
+    {
+      "prompt": "What's the best way to network professionally?",
+      "category": "career",
+      "source": "hh-rlhf"
+    },
+    {
+      "prompt": "How do I develop critical thinking skills?",
+      "category": "education",
+      "source": "hh-rlhf"
+    },
+    {
+      "prompt": "What are some eco-friendly lifestyle changes?",
+      "category": "environment",
+      "source": "hh-rlhf"
+    },
+    {
+      "prompt": "Can you explain the basics of nutrition?",
+      "category": "health",
+      "source": "hh-rlhf"
+    },
+    {
+      "prompt": "How do I give constructive feedback?",
+      "category": "communication",
+      "source": "hh-rlhf"
+    },
+    {
+      "prompt": "What's the importance of emotional intelligence?",
+      "category": "psychology",
+      "source": "hh-rlhf"
+    },
+    {
+      "prompt": "Can you suggest ways to be more creative?",
+      "category": "creativity",
+      "source": "hh-rlhf"
+    },
+    {
+      "prompt": "How do I set and achieve goals?",
+      "category": "self_improvement",
+      "source": "hh-rlhf"
+    },
+    {
+      "prompt": "What are the benefits of reading regularly?",
+      "category": "education",
+      "source": "hh-rlhf"
+    },
+    {
+      "prompt": "Can you explain how memory works?",
+      "category": "psychology",
+      "source": "hh-rlhf"
+    },
+    {
+      "prompt": "How do I develop leadership skills?",
+      "category": "career",
+      "source": "hh-rlhf"
+    },
+    {
+      "prompt": "What's the importance of cultural diversity?",
+      "category": "society",
+      "source": "hh-rlhf"
+    },
+    {
+      "prompt": "Can you suggest ways to reduce anxiety?",
+      "category": "mental_health",
+      "source": "hh-rlhf"
+    },
+    {
+      "prompt": "How do I improve my problem-solving skills?",
+      "category": "skills",
+      "source": "hh-rlhf"
+    },
+    {
+      "prompt": "What are the basics of personal finance?",
+      "category": "finance",
+      "source": "hh-rlhf"
+    },
+    {
+      "prompt": "Can you explain the importance of exercise?",
+      "category": "fitness",
+      "source": "hh-rlhf"
+    },
+    {
+      "prompt": "How do I build self-confidence?",
+      "category": "self_improvement",
+      "source": "hh-rlhf"
+    },
+    {
+      "prompt": "What's the role of art in society?",
+      "category": "culture",
+      "source": "hh-rlhf"
+    }
+  ]
+}

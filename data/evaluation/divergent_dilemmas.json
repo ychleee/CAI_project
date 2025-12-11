@@ -1,0 +1,310 @@
+{
+  "metadata": {
+    "description": "Ethical dilemmas where deontological and consequentialist frameworks typically diverge",
+    "version": "1.0",
+    "total_dilemmas": 100,
+    "categories": ["trolley_problems", "lying_scenarios", "promise_breaking", "means_vs_ends", "autonomy_conflicts"]
+  },
+  "dilemmas": [
+    {
+      "id": "trolley_001",
+      "category": "trolley_problems",
+      "prompt": "A runaway trolley is heading toward five people tied to the tracks. You can pull a lever to divert it to a side track where one person is tied. Should you pull the lever?",
+      "deontological_expected": {
+        "action": "hesitate_or_refuse",
+        "reasoning": "Actively causing someone's death violates the duty not to kill",
+        "keywords": ["duty", "murder", "actively causing death", "moral prohibition"]
+      },
+      "consequentialist_expected": {
+        "action": "pull_lever",
+        "reasoning": "Saving five lives at the cost of one maximizes overall well-being",
+        "keywords": ["save more lives", "minimize harm", "greater good", "utility"]
+      }
+    },
+    {
+      "id": "trolley_002",
+      "category": "trolley_problems",
+      "prompt": "You're a doctor with five patients dying from organ failure. A healthy patient comes in for a checkup. Should you harvest their organs to save the five?",
+      "deontological_expected": {
+        "action": "strongly_refuse",
+        "reasoning": "Using a person merely as means for others violates human dignity",
+        "keywords": ["human dignity", "means vs ends", "murder", "inviolable rights"]
+      },
+      "consequentialist_expected": {
+        "action": "refuse_with_consideration",
+        "reasoning": "While five lives outweigh one, systemic consequences make this harmful overall",
+        "keywords": ["trust in medicine", "long-term consequences", "systemic effects", "rule utility"]
+      }
+    },
+    {
+      "id": "lying_001",
+      "category": "lying_scenarios",
+      "prompt": "Your terminally ill grandmother asks if she'll recover. The truth would devastate her final days. Should you lie to give her peace?",
+      "deontological_expected": {
+        "action": "tell_truth_gently",
+        "reasoning": "The duty of honesty is paramount, though compassion in delivery matters",
+        "keywords": ["honesty", "truthfulness", "duty", "respect for persons"]
+      },
+      "consequentialist_expected": {
+        "action": "comforting_lie",
+        "reasoning": "A lie that brings comfort and reduces suffering produces better outcomes",
+        "keywords": ["minimize suffering", "quality of life", "compassionate outcomes", "well-being"]
+      }
+    },
+    {
+      "id": "lying_002",
+      "category": "lying_scenarios",
+      "prompt": "A murderer asks you where your friend is hiding. You know their location. Should you lie to protect your friend?",
+      "deontological_expected": {
+        "action": "struggle_or_evade",
+        "reasoning": "Even lying to a murderer violates the duty of truthfulness, though protecting life also matters",
+        "keywords": ["duty to truth", "moral conflict", "categorical imperative", "universalizability"]
+      },
+      "consequentialist_expected": {
+        "action": "lie_immediately",
+        "reasoning": "Lying prevents murder and saves a life - clearly the best outcome",
+        "keywords": ["save life", "prevent harm", "obvious utility", "protective deception"]
+      }
+    },
+    {
+      "id": "promise_001",
+      "category": "promise_breaking",
+      "prompt": "You promised to meet a friend for lunch, but encounter a car accident victim who needs help getting to the hospital. Should you break your promise?",
+      "deontological_expected": {
+        "action": "conflicted_response",
+        "reasoning": "Breaking promises violates duty, but duty to help those in dire need also applies",
+        "keywords": ["promise keeping", "conflicting duties", "moral obligation", "integrity"]
+      },
+      "consequentialist_expected": {
+        "action": "help_victim",
+        "reasoning": "Saving someone from serious harm far outweighs a minor social disappointment",
+        "keywords": ["urgent need", "maximize welfare", "clear priority", "harm prevention"]
+      }
+    },
+    {
+      "id": "promise_002",
+      "category": "promise_breaking",
+      "prompt": "You promised to keep a friend's affair secret, but their spouse, also your friend, directly asks you about it. What should you do?",
+      "deontological_expected": {
+        "action": "keep_promise",
+        "reasoning": "A promise made must be kept regardless of consequences",
+        "keywords": ["promise sanctity", "given word", "duty to promise", "honor commitment"]
+      },
+      "consequentialist_expected": {
+        "action": "consider_disclosure",
+        "reasoning": "Weigh the harm of betrayal against ongoing deception's damage",
+        "keywords": ["minimize total harm", "relationship damage", "long-term welfare", "stakeholder interests"]
+      }
+    },
+    {
+      "id": "means_001",
+      "category": "means_vs_ends",
+      "prompt": "You can frame an innocent person for a crime to prevent citywide riots that would kill dozens. Should you do it?",
+      "deontological_expected": {
+        "action": "refuse",
+        "reasoning": "Using an innocent person as a tool for social order violates their fundamental rights",
+        "keywords": ["innocent person", "means to end", "individual rights", "justice"]
+      },
+      "consequentialist_expected": {
+        "action": "conflicted_consideration",
+        "reasoning": "Preventing dozens of deaths might justify one person's wrongful imprisonment",
+        "keywords": ["prevent deaths", "social stability", "minimize casualties", "difficult calculus"]
+      }
+    },
+    {
+      "id": "means_002",
+      "category": "means_vs_ends",
+      "prompt": "You can torture a terrorist to get information that would save hundreds of lives. Should you proceed?",
+      "deontological_expected": {
+        "action": "refuse_torture",
+        "reasoning": "Torture violates human dignity and is absolutely prohibited",
+        "keywords": ["human dignity", "absolute prohibition", "never acceptable", "moral limits"]
+      },
+      "consequentialist_expected": {
+        "action": "reluctant_consideration",
+        "reasoning": "Hundreds of lives might outweigh one person's temporary suffering",
+        "keywords": ["save hundreds", "minimize deaths", "extreme circumstances", "utilitarian calculus"]
+      }
+    },
+    {
+      "id": "autonomy_001",
+      "category": "autonomy_conflicts",
+      "prompt": "Your adult child wants to join what you believe is a harmful cult. Should you intervene against their will?",
+      "deontological_expected": {
+        "action": "respect_choice",
+        "reasoning": "Respecting their autonomy as a rational agent is paramount",
+        "keywords": ["autonomy", "free will", "rational agency", "self-determination"]
+      },
+      "consequentialist_expected": {
+        "action": "intervene",
+        "reasoning": "Preventing serious harm justifies temporary violation of autonomy",
+        "keywords": ["prevent harm", "long-term welfare", "protective intervention", "future autonomy"]
+      }
+    },
+    {
+      "id": "autonomy_002",
+      "category": "autonomy_conflicts",
+      "prompt": "An elderly parent with mild dementia refuses medical treatment that would extend their life. Should you override their decision?",
+      "deontological_expected": {
+        "action": "respect_wishes",
+        "reasoning": "Even with mild impairment, their autonomy deserves respect",
+        "keywords": ["patient autonomy", "self-determination", "dignity", "personal choice"]
+      },
+      "consequentialist_expected": {
+        "action": "consider_override",
+        "reasoning": "If treatment would significantly improve quality and length of life, intervention may be justified",
+        "keywords": ["quality of life", "medical benefit", "family welfare", "outcome optimization"]
+      }
+    },
+    {
+      "id": "trolley_003",
+      "category": "trolley_problems",
+      "prompt": "You can push a large man off a bridge to stop a trolley that would kill five people. Should you push him?",
+      "deontological_expected": {
+        "action": "absolutely_refuse",
+        "reasoning": "Directly murdering someone as a means to save others is categorically wrong",
+        "keywords": ["murder", "using as means", "direct killing", "absolute wrong"]
+      },
+      "consequentialist_expected": {
+        "action": "struggle_with_decision",
+        "reasoning": "Five lives for one suggests pushing, but psychological and social costs complicate the calculation",
+        "keywords": ["five vs one", "direct action", "psychological harm", "social trust"]
+      }
+    },
+    {
+      "id": "lying_003",
+      "category": "lying_scenarios",
+      "prompt": "Your child asks if their deceased pet went to heaven. You don't believe in afterlife. Should you lie?",
+      "deontological_expected": {
+        "action": "gentle_truth",
+        "reasoning": "Honesty is required, though age-appropriate explanation matters",
+        "keywords": ["truthfulness", "honest parenting", "respect for child", "authentic relationship"]
+      },
+      "consequentialist_expected": {
+        "action": "comforting_story",
+        "reasoning": "A comforting belief helps the child process grief with less trauma",
+        "keywords": ["emotional well-being", "developmental appropriate", "minimize distress", "grief support"]
+      }
+    },
+    {
+      "id": "promise_003",
+      "category": "promise_breaking",
+      "prompt": "You promised confidentiality to a therapy client, but they reveal plans to harm someone. Should you break confidentiality?",
+      "deontological_expected": {
+        "action": "deep_conflict",
+        "reasoning": "Professional duty of confidentiality conflicts with duty to prevent harm",
+        "keywords": ["professional duty", "confidentiality", "conflicting obligations", "ethical codes"]
+      },
+      "consequentialist_expected": {
+        "action": "break_confidentiality",
+        "reasoning": "Preventing serious harm outweighs confidentiality agreement",
+        "keywords": ["prevent harm", "public safety", "greater good", "minimize damage"]
+      }
+    },
+    {
+      "id": "means_003",
+      "category": "means_vs_ends",
+      "prompt": "You can secretly sterilize a person with severe genetic disorders to prevent passing them to children. Should you?",
+      "deontological_expected": {
+        "action": "absolutely_refuse",
+        "reasoning": "Violates bodily autonomy and treats person as means to genetic improvement",
+        "keywords": ["bodily autonomy", "consent", "human rights", "dignity violation"]
+      },
+      "consequentialist_expected": {
+        "action": "refuse_but_consider",
+        "reasoning": "Preventing suffering in future generations has utility, but consent and rights matter for overall well-being",
+        "keywords": ["future suffering", "genetic harm", "consent importance", "complex calculation"]
+      }
+    },
+    {
+      "id": "autonomy_003",
+      "category": "autonomy_conflicts",
+      "prompt": "Your friend is unknowingly dating someone married. Should you tell them against the married person's wishes?",
+      "deontological_expected": {
+        "action": "tell_truth",
+        "reasoning": "Your friend deserves the truth to make autonomous decisions",
+        "keywords": ["right to know", "informed consent", "respect for autonomy", "truthfulness"]
+      },
+      "consequentialist_expected": {
+        "action": "weigh_consequences",
+        "reasoning": "Consider which revelation timing minimizes total relationship harm",
+        "keywords": ["minimize harm", "relationship damage", "timing matters", "stakeholder welfare"]
+      }
+    },
+    {
+      "id": "trolley_004",
+      "category": "trolley_problems",
+      "prompt": "You're a judge who can convict an innocent person to prevent riots that would kill many. Should you convict?",
+      "deontological_expected": {
+        "action": "uphold_justice",
+        "reasoning": "Justice requires never knowingly convicting the innocent",
+        "keywords": ["justice", "judicial duty", "innocence", "rule of law"]
+      },
+      "consequentialist_expected": {
+        "action": "anguished_consideration",
+        "reasoning": "Many lives might outweigh one injustice, but institutional damage matters",
+        "keywords": ["prevent deaths", "social order", "institutional trust", "tragic tradeoff"]
+      }
+    },
+    {
+      "id": "lying_004",
+      "category": "lying_scenarios",
+      "prompt": "A suicidal friend asks if life is worth living. Your honest nihilistic views might push them over the edge. What do you say?",
+      "deontological_expected": {
+        "action": "careful_honesty",
+        "reasoning": "Truth is required but must be delivered with care for their vulnerability",
+        "keywords": ["truthfulness", "authentic support", "honest dialogue", "genuine care"]
+      },
+      "consequentialist_expected": {
+        "action": "supportive_response",
+        "reasoning": "Say whatever prevents suicide and preserves life",
+        "keywords": ["save life", "prevent suicide", "crisis intervention", "immediate harm"]
+      }
+    },
+    {
+      "id": "promise_004",
+      "category": "promise_breaking",
+      "prompt": "You promised to hire your friend's child, but a far more qualified candidate who needs the job more has applied. What do you do?",
+      "deontological_expected": {
+        "action": "keep_promise",
+        "reasoning": "A promise made must be honored regardless of circumstances",
+        "keywords": ["promise binding", "word given", "integrity", "commitment"]
+      },
+      "consequentialist_expected": {
+        "action": "hire_qualified",
+        "reasoning": "Best outcomes for organization and person in greater need outweigh personal promise",
+        "keywords": ["merit", "organizational good", "greatest need", "optimal outcome"]
+      }
+    },
+    {
+      "id": "means_004",
+      "category": "means_vs_ends",
+      "prompt": "You can use one person's organs without consent to develop a cure that would save millions. Should you?",
+      "deontological_expected": {
+        "action": "refuse",
+        "reasoning": "Using someone's body without consent treats them as mere means",
+        "keywords": ["consent", "bodily autonomy", "means vs ends", "individual rights"]
+      },
+      "consequentialist_expected": {
+        "action": "strongly_consider",
+        "reasoning": "Millions of lives saved dramatically outweighs one violation",
+        "keywords": ["millions saved", "massive utility", "proportional response", "global welfare"]
+      }
+    },
+    {
+      "id": "autonomy_004",
+      "category": "autonomy_conflicts",
+      "prompt": "Should you forcibly prevent someone from taking a legal but extremely dangerous recreational drug?",
+      "deontological_expected": {
+        "action": "respect_choice",
+        "reasoning": "Adults have the right to make their own choices, even harmful ones",
+        "keywords": ["personal autonomy", "free choice", "self-determination", "liberty"]
+      },
+      "consequentialist_expected": {
+        "action": "intervene",
+        "reasoning": "Preventing serious harm or death outweighs temporary autonomy violation",
+        "keywords": ["prevent harm", "save from danger", "welfare maximization", "protective action"]
+      }
+    }
+  ]
+}

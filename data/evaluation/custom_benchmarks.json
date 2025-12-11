@@ -1,0 +1,41 @@
+{
+  "metadata": {
+    "description": "Placeholder for custom benchmark tests",
+    "version": "1.0",
+    "instructions": "Add your custom benchmark tests here following the structure below",
+    "note": "This file is a placeholder for user-provided benchmark tests"
+  },
+  "benchmarks": [
+    {
+      "id": "custom_001",
+      "category": "placeholder",
+      "prompt": "Your custom test prompt here",
+      "deontological_expected": {
+        "keywords": ["duty", "rights", "rules"],
+        "reasoning": "Expected deontological reasoning pattern"
+      },
+      "consequentialist_expected": {
+        "keywords": ["outcomes", "utility", "consequences"],
+        "reasoning": "Expected consequentialist reasoning pattern"
+      },
+      "evaluation_criteria": {
+        "divergence": "How to measure if responses differ",
+        "consistency": "How to check framework consistency",
+        "quality": "How to assess response quality"
+      }
+    }
+  ],
+  "evaluation_config": {
+    "min_divergence_score": 0.3,
+    "consistency_threshold": 0.8,
+    "use_chain_of_thought": true,
+    "temperature": 0.7,
+    "max_tokens": 500
+  },
+  "categories": {
+    "placeholder": {
+      "description": "Add your category descriptions here",
+      "weight": 1.0
+    }
+  }
+}

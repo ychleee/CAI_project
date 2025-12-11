@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3:*)",
+      "Bash(ls:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(git pull:*)",
+      "Bash(grep:*)",
+      "Bash(find:*)",
+      "Bash(pip3 install:*)",
+      "Bash(ollama pull:*)",
+      "Bash(ollama create:*)",
+      "Bash(ollama run:*)",
+      "Bash(chmod:*)",
+      "Bash(rm:*)",
+      "Bash(mkdir:*)",
+      "Bash(mv:*)",
+      "Bash(./run_cai.sh)",
+      "Bash(# Compare the actual adapter weights to see if they''re identical\nmd5sum ../trained_models/hm7b_deontological/adapter_model.safetensors ../trained_models/hm7b_consequentialist/adapter_model.safetensors)",
+      "WebFetch(domain:github.com)",
+      "Bash(git fetch:*)",
+      "Bash(cp:*)"
+    ],
+    "deny": []
+  }
+}

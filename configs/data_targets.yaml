@@ -1,0 +1,116 @@
+# Data Quantity Specifications for Constitutional AI Training
+
+# SL-CAI Stage (Supervised Learning)
+sl_stage:
+  # Input data
+  red_team_prompts: 3000  # Harmful prompts to revise
+  helpfulness_prompts: 3000  # Normal helpful queries
+  
+  # Processing parameters
+  revisions_per_harmful: 4  # Number of critique-revision rounds
+  revisions_per_helpful: 0  # Helpful prompts don't need revision
+  principles_per_revision: 1  # Randomly sample 1 principle per round
+  
+  # Output expectations
+  harmful_revised_samples: 12000  # 3000 * 4 revisions
+  helpful_samples: 3000  # Unchanged helpful responses
+  total_sl_samples: 15000  # Combined dataset
+  
+  # Train/validation split
+  train_ratio: 0.9
+  val_ratio: 0.1
+  expected_train_samples: 13500
+  expected_val_samples: 1500
+
+# RL-CAI Stage (Reinforcement Learning)
+rl_stage:
+  # Preference data generation
+  prompts_for_preferences: 2000  # Prompts to generate preferences
+  responses_per_prompt: 4  # Generate 4 responses per prompt
+  
+  # Soft label generation
+  use_soft_labels: true  # Use probability scores vs hard preferences
+  min_score_difference: 0.1  # Minimum difference to create preference
+  
+  # Preference pairs
+  pairs_per_prompt: 6  # C(4,2) = 6 possible pairs
+  total_possible_pairs: 12000  # 2000 * 6
+  expected_valid_pairs: 8000  # After filtering similar responses
+  
+  # PPO training data
+  rollout_prompts: 5000  # Prompts for PPO rollouts
+  rollouts_per_prompt: 2  # Number of rollouts
+  total_rollout_samples: 10000
+
+# Evaluation Data
+evaluation:
+  # Divergence testing
+  divergence_test_cases: 100  # Core ethical dilemmas
+  categories:
+    trolley_problems: 20
+    lying_scenarios: 20
+    promise_breaking: 20
+    means_vs_ends: 20
+    autonomy_conflicts: 20
+  
+  # Consistency testing
+  consistency_variations: 5  # Paraphrases per test case
+  total_consistency_tests: 500  # 100 * 5
+  
+  # Edge cases
+  edge_cases: 50  # Boundary scenarios
+  adversarial_prompts: 50  # Try to break consistency
+  
+  # Human evaluation subset
+  human_eval_subset: 50  # For manual review
+  human_annotators: 3  # Number of annotators
+  
+# Few-shot examples
+few_shot:
+  examples_per_constitution: 10  # Detailed examples
+  examples_per_principle: 2  # Quick examples per principle
+  total_examples: 32  # For 16 principles
+
+# Dataset sizes by phase
+dataset_sizes:
+  # Phase 1: Development with Pythia-1.4B
+  phase1_dev:
+    red_team_prompts: 500  # Smaller for testing
+    helpfulness_prompts: 500
+    eval_samples: 100
+    
+  # Phase 2: Full training with Mistral-7B  
+  phase2_prod:
+    red_team_prompts: 3000
+    helpfulness_prompts: 3000
+    eval_samples: 500
+
+# Data quality thresholds
+quality_metrics:
+  min_response_length: 50  # Characters
+  max_response_length: 2000
+  min_revision_difference: 0.3  # Embedding distance
+  diversity_threshold: 0.7  # Minimum diversity in responses
+
+# Sampling strategies
+sampling:
+  # For SL stage
+  harmful_helpful_ratio: 0.5  # 50/50 mix
+  principle_sampling: "random"  # or "weighted", "sequential"
+  
+  # For RL stage
+  temperature_exploration: [0.7, 0.8, 0.9, 1.0]  # Different temps
+  top_p_values: [0.9, 0.95]  # Nucleus sampling
+  
+# Data storage
+storage:
+  format: "jsonl"  # JSON Lines format
+  compression: "gzip"  # For large datasets
+  backup_to_cloud: true  # Google Drive backup
+  
+# Monitoring
+data_monitoring:
+  track_dataset_stats: true
+  log_sample_examples: 10  # Log N examples per batch
+  validate_json: true  # Ensure valid JSON
+  check_contamination: true  # Check for data leakage

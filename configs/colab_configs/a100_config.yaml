@@ -1,0 +1,76 @@
+# A100 GPU Configuration (Colab Pro/Pro+)
+# Memory: 40GB or 80GB VRAM
+
+# Auto-detect A100 variant
+model_selection:
+  memory_threshold: 40  # GB
+  preferred_model: "mistralai/Mistral-7B-Instruct-v0.2"
+  
+# A100-specific optimizations  
+gpu_config:
+  device: "cuda"
+  mixed_precision: "bf16"  # A100 has good bf16 support
+  tf32: true  # Enable TF32 for better performance
+  max_memory: "35GB"  # Conservative for 40GB variant
+  
+# Model-specific configs for A100
+mistral_7b:
+  quantization_bits: null  # No quantization needed
+  batch_size: 4
+  gradient_accumulation: 4
+  max_length: 2048
+  lora_r: 64
+  lora_alpha: 128
+  
+mixtral_8x7b:  # If using as feedback model
+  quantization_bits: 4  # Still quantize this large model
+  batch_size: 1
+  gradient_accumulation: 8
+  max_length: 1024
+  
+llama2_13b:  # Alternative option
+  quantization_bits: null
+  batch_size: 2
+  gradient_accumulation: 8
+  max_length: 2048
+  lora_r: 64
+  
+# Training adjustments for A100
+training_overrides:
+  gradient_checkpointing: false  # Enough memory
+  optim: "adamw"  # Full precision optimizer
+  save_steps: 100
+  eval_steps: 50
+  logging_steps: 5
+  warmup_steps: 100
+  
+  # A100-specific performance
+  tf32: true
+  dataloader_num_workers: 4
+  
+# Data loading for A100
+data_config:
+  streaming: false
+  max_samples_per_epoch: null  # No limit
+  preprocessing_batch_size: 1000
+  dataloader_pin_memory: true
+  prefetch_factor: 2
+  
+# Advanced features available on A100
+advanced:
+  use_flash_attention: true  # If available
+  use_triton: true  # Triton kernels
+  compile_model: false  # Torch 2.0 compile
+  
+# Multi-GPU settings (if Pro+ with 2 GPUs)
+distributed:
+  enabled: false  # Set true for multi-GPU
+  strategy: "ddp"  # or "deepspeed"
+  gradient_sync_steps: 1
+  
+# Monitoring
+monitoring:
+  track_gpu_memory: true
+  memory_threshold_warning: 35  # GB
+  auto_reduce_batch: false  # Plenty of memory
+  profile_training: true  # Enable profiling

@@ -1,0 +1,8 @@
+{
+  "metadata": {
+    "source": "Anthropic HH-RLHF",
+    "total_prompts": 0,
+    "description": "Red team attempts at generating harmful content"
+  },
+  "prompts": []
+}
