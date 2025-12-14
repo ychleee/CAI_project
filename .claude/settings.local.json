@@ -21,7 +21,10 @@
       "Bash(# Compare the actual adapter weights to see if they''re identical\nmd5sum ../trained_models/hm7b_deontological/adapter_model.safetensors ../trained_models/hm7b_consequentialist/adapter_model.safetensors)",
       "WebFetch(domain:github.com)",
       "Bash(git fetch:*)",
-      "Bash(cp:*)"
+      "Bash(cp:*)",
+      "Bash(pip install:*)",
+      "Bash(/Users/leeyoungchan/anaconda3/bin/python3:*)",
+      "Bash(# Create multiple backups with timestamps\nTIMESTAMP=$(date +%Y%m%d_%H%M%S)\nmkdir -p ../cai_claude_final_backup\nmkdir -p backups\n\n# Copy consequentialist\ncp cai_claude_output/consequentialist_sl_dataset.jsonl cai_claude_output_backup/consequentialist_sl_dataset_${TIMESTAMP}.jsonl\ncp cai_claude_output/consequentialist_sl_dataset.jsonl ../cai_claude_final_backup/\ncp cai_claude_output/consequentialist_sl_dataset.jsonl backups/consequentialist_FINAL.jsonl\n\n# Copy deontological \ncp cai_claude_output/deontological_sl_dataset.jsonl ../cai_claude_final_backup/\ncp cai_claude_output/deontological_sl_dataset.jsonl backups/deontological_FINAL.jsonl\n\necho \"\"✅ Backups created successfully!\"\"\necho \"\"Locations:\"\"\necho \"\"  - cai_claude_output_backup/ (timestamped)\"\"\necho \"\"  - ../cai_claude_final_backup/ (final copies)\"\"\necho \"\"  - backups/ (FINAL versions)\"\")"
     ],
     "deny": []
   }
